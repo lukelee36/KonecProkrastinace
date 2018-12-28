@@ -70,7 +70,8 @@
         android:layout_gravity="end|bottom"
         android:layout_margin="@dimen/fab_margin"
         app:backgroundTint="@color/colorPrimaryDark"
-        app:srcCompat="@android:drawable/ic_menu_edit"
+        app:elevation="6dp"
+        app:pressedTranslationZ="12dp"
         />
 
 
