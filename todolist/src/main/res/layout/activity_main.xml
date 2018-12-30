@@ -69,9 +69,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="@dimen/fab_margin"
-        app:backgroundTint="@color/colorPrimaryDark"
-        app:elevation="6dp"
-        app:pressedTranslationZ="12dp"
+        app:srcCompat="@android:drawable/ic_input_add"
+        android:tint="@android:color/white"
+        app:backgroundTint="@color/colorPrimary"
         />
 
 

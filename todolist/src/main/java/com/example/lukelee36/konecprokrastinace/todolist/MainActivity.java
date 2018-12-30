@@ -25,9 +25,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -97,8 +99,32 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                // ukaze se alert dialog
+                final AlertDialog.Builder mBuilder = new AlertDialog.Builder(MainActivity.this);
+                View mView = getLayoutInflater().inflate(R.layout.add_dialog_layout,null);
+                final EditText mAdd = mView.findViewById(R.id.etTaskText);
+                Button mAddbtn = mView.findViewById(R.id.addbtn);
+
+                mBuilder.setView(mView);
+                final AlertDialog dialog = mBuilder.create();
+
+                mAddbtn.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View view){
+                        if(!mAdd.getText().toString().isEmpty()){
+                            Toast.makeText(MainActivity.this,
+                                    getString(R.string.succesful),
+                                    Toast.LENGTH_LONG).show();
+                            dialog.dismiss();
+                        }else{
+                            Toast.makeText(MainActivity.this,
+                                    getString(R.string.Err_msg),
+                                    Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+
+                dialog.show();
             }
         });
 
